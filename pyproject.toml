@@ -16,7 +16,7 @@ lint = [
 
 [tool.ruff]
 # Maximum line length
-line-length = 88
+line-length = 100
 # Exclude these directories globally
 exclude = [".venv", "dist", "__pycache__", ".git"]
 
