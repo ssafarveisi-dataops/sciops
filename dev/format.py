@@ -3,7 +3,7 @@ import re
 import subprocess
 import sys
 
-RUFF_FORMAT = [sys.executable, "-m", "ruff", "format"]
+RUFF_FORMAT = [sys.executable, "-m", "ruff", "format", "--output-format=github", "--preview"]
 MESSAGE_REGEX = re.compile(r"^Would reformat: (.+)$")
 
 
