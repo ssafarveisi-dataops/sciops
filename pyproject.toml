@@ -17,8 +17,8 @@ lint = [
 [tool.ruff]
 # Maximum line length
 line-length = 100
-# Exclude these directories globally
-exclude = [".venv", "dist", "__pycache__", ".git"]
+target-version = "py312"
+extend-include = ["*.ipynb"]
 
 [tool.ruff.format]
 preview = true
