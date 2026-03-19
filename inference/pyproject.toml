@@ -9,7 +9,19 @@ dependencies = [
     "pydantic>=2.12.5",
 ]
 
-
 [tool.setuptools.packages.find]
 where = ["src"]
+exclude = ["tests", "tests.*"]
 include = ["cognism_sciops.inference*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[dependency-groups]
+pytest = [
+    "pytest>=9.0.2",
+    "pytest-asyncio>=1.3.0",
+]
+test = [
+  { include-group = "pytest" },
+]

@@ -21,7 +21,7 @@ jobs:
         with:
           version: "0.10.11"
       - name: Install Dev Dependencies
-        run: uv sync --group dev
+        run: uv sync --group linting
       - name: Run Ruff format check
         run: uv run ruff format --check --output-format github --preview .
       - name: Run Ruff lint check
