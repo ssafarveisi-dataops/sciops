@@ -17,7 +17,5 @@ class PreProcessor(ABC):
         pass
 
     @abstractmethod
-    def collate(
-        self, batch: list[Any], **kwargs
-    ) -> Any:  # list with length of BATCH_SIZE
+    def collate(self, batch: list[Any], **kwargs) -> Any:  # list with length of BATCH_SIZE
         pass

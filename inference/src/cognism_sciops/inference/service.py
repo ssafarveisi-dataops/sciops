@@ -13,9 +13,7 @@ class Service(ABC):
 
     async def __call__(self, batch_inputs: list[BaseModel]) -> list[Any]:
 
-        batch_inputs: list[dict] = [
-            single_input.model_dump() for single_input in batch_inputs
-        ]
+        batch_inputs: list[dict] = [single_input.model_dump() for single_input in batch_inputs]
 
         processed_batch = self.preprocessor.preprocess(batch_inputs)
         outputs = await self.model.infer(processed_batch)
