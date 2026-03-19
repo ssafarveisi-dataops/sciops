@@ -1,0 +1,28 @@
+name: Code Formatting and Linting Checks
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  format-check:
+    name: Code Formatting Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version-file: ".python-version"
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+      - name: Install Dev Dependencies
+        run: uv sync --group dev
+      - name: Run Ruff format check
+        run: uv run ruff format --check --output-format github --preview .
+      - name: Run Ruff lint check
+        run: uv run ruff check --output-format github .
+      - name: Run Ty type check
+        run: uv run ty check --output-format github .

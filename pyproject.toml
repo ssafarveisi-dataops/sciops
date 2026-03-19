@@ -1,0 +1,33 @@
+# Root-level pyproject.toml for sciops monorepo
+[project]
+name = "sciops"
+requires-python = ">=3.12"
+version = "0.0.0"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "ruff>=0.15.6",
+    "ty>=0.0.23",
+]
+
+[tool.ruff]
+# Maximum line length
+line-length = 88
+# Exclude these directories globally
+exclude = [".venv", "dist", "__pycache__", ".git"]
+
+[tool.ruff.lint]
+# Select rules to check
+select = ["E", "F", "W", "C", "I"]  # Errors, F-strings, Warnings, Complexity, Imports
+
+[tool.ty.rules]
+unresolved-import = "ignore"
+
+[tool.ty.src]
+include = [
+    "**/src",
+]
+
+[tool.ty.environment]
+python-platform = "all"

@@ -1,0 +1,14 @@
+[project]
+name = "cognism-sciops-preprocessor"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pandas>=3.0.1",
+    "pydantic>=2.12.5",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["cognism_sciops.preprocessor*"]
