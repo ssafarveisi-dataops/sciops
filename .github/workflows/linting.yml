@@ -20,11 +20,10 @@ jobs:
         uses: astral-sh/setup-uv@v7
         with:
           version: "0.10.11"
-      - name: Install Dev Dependencies
-        run: uv sync --locked --only-dev
+          enable-cache: false
       - name: Run Ruff format check
-        run: uv run ruff format --check --output-format github --preview .
+        run: uv run --only-group lint ruff format --check --output-format github --preview .
       - name: Run Ruff lint check
-        run: uv run ruff check --output-format github .
+        run: uv run --only-group lint ruff check --output-format github .
       - name: Run Ty type check
-        run: uv run ty check --output-format github .
+        run: uv run --only-group lint ty check --output-format github .
