@@ -20,6 +20,7 @@ jobs:
         uses: astral-sh/setup-uv@v7
         with:
           version: "0.10.11"
+          enable-cache: false
       - name: Install Dev Dependencies
         run: uv sync --locked --all-groups
       - name: Test all packages
