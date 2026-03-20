@@ -4,15 +4,41 @@ name = "sciops"
 requires-python = ">=3.12"
 version = "0.0.0"
 keywords = ["sciops", "ai"]
+dependencies = [
+    "inference", # namespace package
+    "postprocessor", # namespace package
+    "preprocessor", # namespace package
+]
+
+[build-system]
+requires = ["uv_build>=0.8.22,<0.9.0"]
+build-backend = "uv_build"
 
 [dependency-groups]
 dev = [
-   { include-group = "lint" }
+   { include-group = "lint" },
+   { include-group = "pytest" },
 ]
 lint = [
     "ruff==0.15.5",
     "ty==0.0.24",
 ]
+pytest = [
+    "pytest>=9.0.2",
+    "pytest-asyncio>=1.3.0",
+]
+
+[tool.uv]
+managed = true
+package = false # the project itself is not a package
+
+[tool.uv.sources]
+inference = { workspace = true }
+postprocessor = { workspace = true }
+preprocessor = { workspace = true }
+
+[tool.uv.workspace]
+members = ["src/*"]  # wildcards are supported
 
 [tool.ruff]
 # Maximum line length
@@ -34,8 +60,11 @@ unresolved-import = "ignore"
 
 [tool.ty.src]
 include = [
-    "**/src",
+    "src/**/src",
 ]
 
 [tool.ty.environment]
 python-platform = "all"
+
+[tool.pytest.ini_options]
+testpaths = ["src/**/tests"]
