@@ -10,6 +10,19 @@ dependencies = [
     "preprocessor", # namespace package
 ]
 
+[tool.uv.sources]
+# namespace packages go here
+inference = { workspace = true }
+postprocessor = { workspace = true }
+preprocessor = { workspace = true }
+
+[tool.uv]
+managed = true
+package = false # the project itself is not a package
+
+[tool.uv.workspace]
+members = ["src/*"]  # wildcards are supported
+
 [build-system]
 requires = ["uv_build>=0.8.22,<0.9.0"]
 build-backend = "uv_build"
@@ -28,19 +41,6 @@ pytest = [
     "pytest-asyncio>=1.3.0",
     "pytest-cov>=7.0.0",
 ]
-
-[tool.uv]
-managed = true
-package = false # the project itself is not a package
-
-[tool.uv.sources]
-# namespace packages go here
-inference = { workspace = true }
-postprocessor = { workspace = true }
-preprocessor = { workspace = true }
-
-[tool.uv.workspace]
-members = ["src/*"]  # wildcards are supported
 
 [tool.ruff]
 # Maximum line length
