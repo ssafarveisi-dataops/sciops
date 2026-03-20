@@ -1,5 +1,5 @@
 [project]
-name = "cognism-sciops-preprocessor"
+name = "preprocessor"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -9,6 +9,9 @@ dependencies = [
     "pydantic>=2.12.5",
 ]
 
-[tool.setuptools.packages.find]
-where = ["src"]
-include = ["cognism_sciops.preprocessor*"]
+[build-system]
+requires = ["uv_build>=0.8.22,<0.9.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "cognism_sciops.preprocessor"
