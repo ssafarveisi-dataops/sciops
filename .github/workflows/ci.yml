@@ -24,4 +24,6 @@ jobs:
       - name: Install Dev Dependencies
         run: uv sync --locked --all-groups --all-packages
       - name: Test all packages
-        run: uv run pytest src/ -v
+        run: |
+          # Test all packages even if one package has changes to prove integration
+          uv run pytest src/ -v
