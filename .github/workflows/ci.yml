@@ -22,19 +22,6 @@ jobs:
           version: "0.10.11"
           enable-cache: false
       - name: Install Dev Dependencies
-        run: uv sync --locked --all-groups
+        run: uv sync --locked --all-groups --all-packages
       - name: Test all packages
-        run: |
-          set -e
-
-          for pkg in src/*; do
-            if [ -f "$pkg/pyproject.toml" ]; then
-              echo "=============================="
-              echo "Testing package: $pkg"
-              echo "=============================="
-
-              (cd "$pkg" && uv run pytest)
-            fi
-          done
-
-          echo "✅ All tests passed"
+        run: uv run pytest src/ -v
