@@ -22,6 +22,19 @@ jobs:
           version: "0.10.11"
       - name: Install Dev Dependencies
         run: uv sync --locked --all-groups
-      - name: Test inference package
-        run: uv run pytest
-        working-directory: src/inference
+      - name: Test all packages
+        run: |
+          for pkg in src/*; do
+            if [ -f "$pkg/pyproject.toml" ]; then
+              echo "=============================="
+              echo "Testing package: $pkg"
+              echo "=============================="
+
+              (
+                cd "$pkg" || exit 1
+                uv run pytest
+              ) || { echo "❌ Tests failed in $pkg"; exit 1; }
+            fi
+          done
+
+          echo "✅ All tests passed"
