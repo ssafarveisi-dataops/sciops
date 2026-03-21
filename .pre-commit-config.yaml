@@ -40,13 +40,5 @@ repos:
          (?x)^(
            src/.*/tests/.*\.py
           )$
-        entry: >
-          bash -c '
-          for pkg in src/*; do
-            if [ -f "$pkg/pyproject.toml" ]; then
-              echo "Running ty on $pkg"
-              uv run --only-group lint ty check --output-format github "$pkg"
-            fi
-          done
-          '
+        entry: uv run --only-group lint ty check --output-format github .
         require_serial: true
