@@ -4,6 +4,7 @@ from typing import Any
 from pydantic import BaseModel
 
 
+# Updated version of the sciops service
 class Service(ABC):
     def __init__(self, **kwargs) -> None:
 

@@ -63,6 +63,7 @@ unresolved-import = "ignore"
 [tool.ty.src]
 include = [
     "src/**/src",
+    "dev/"
 ]
 
 [tool.ty.environment]

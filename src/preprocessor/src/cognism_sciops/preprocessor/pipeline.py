@@ -4,6 +4,7 @@ from typing import Any
 from pydantic import BaseModel
 
 
+# Preprocessor from sciops repo
 class PreProcessor(ABC):
     def __init__(self, is_inference_mode: bool, **kwargs) -> None:
         self.is_inference_mode = is_inference_mode
