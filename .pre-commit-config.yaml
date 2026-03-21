@@ -26,3 +26,27 @@ repos:
         files: '\.(py|ipynb|md)$'
         stages: [pre-commit]
         require_serial: true
+
+      # Run type checking
+      - id: ty
+        name: ty
+        language: system
+        files: |
+          (?x)^(
+            src/.*\.py|
+            dev/.*\.py
+           )$
+        exclude: |
+         (?x)^(
+           src/.*/tests/.*\.py
+          )$
+        entry: >
+          bash -c '
+          for pkg in src/*; do
+            if [ -f "$pkg/pyproject.toml" ]; then
+              echo "Running ty on $pkg"
+              uv run --only-group lint ty check --output-format github "$pkg"
+            fi
+          done
+          '
+        require_serial: true
