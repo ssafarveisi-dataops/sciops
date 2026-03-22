@@ -6,8 +6,7 @@ description = "A set of science packages"
 requires-python = ">=3.12"
 keywords = ["sciops", "machine learning"]
 classifiers = [
-    "Intended Audience :: Science",
-    "Intended Audience :: DataOps",
+    "Intended Audience :: Science/Research",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
     "Topic :: Software Development",
     "Topic :: Software Development :: Libraries",
