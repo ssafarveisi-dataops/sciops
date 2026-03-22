@@ -42,3 +42,10 @@ repos:
           )$
         entry: uv run --only-group lint ty check --output-format github .
         require_serial: true
+
+      - id: typos
+        name: typos
+        language: system
+        entry: uv run --only-group typos typos
+        args: []
+        require_serial: true
