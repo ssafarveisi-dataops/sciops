@@ -56,6 +56,7 @@ docstring-code-format = true
 preview = true
 # Select rules to check
 select = ["E", "F", "W", "C", "I"]  # Errors, F-strings, Warnings, Complexity, Imports
+ignore = ["E302"] # let Black handle spacing
 
 [tool.ty.rules]
 unresolved-import = "ignore"
