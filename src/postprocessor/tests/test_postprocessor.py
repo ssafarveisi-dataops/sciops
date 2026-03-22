@@ -1,5 +1,8 @@
 import pytest
+
 from cognism_sciops.postprocessor.pipeline import PostProcessor
+
+# Example tests
 
 # -----------------------------
 # 1. Abstract class enforcement

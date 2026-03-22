@@ -1,6 +1,9 @@
 import pytest
-from cognism_sciops.preprocessor.pipeline import PreProcessor
 from pydantic import BaseModel
+
+from cognism_sciops.preprocessor.pipeline import PreProcessor
+
+# Example tests
 
 # -----------------------------
 # 1. Abstract enforcement

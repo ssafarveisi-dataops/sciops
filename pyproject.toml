@@ -1,9 +1,20 @@
 # Root-level pyproject.toml for sciops monorepo
 [project]
 name = "sciops"
-requires-python = ">=3.12"
 version = "0.0.0"
-keywords = ["sciops", "ai"]
+description = "A set of science packages"
+requires-python = ">=3.12"
+keywords = ["sciops", "machine learning"]
+classifiers = [
+    "Intended Audience :: Science",
+    "Intended Audience :: DataOps",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.12",
+]
 dependencies = [
     "inference", # namespace package
     "postprocessor", # namespace package
@@ -46,25 +57,28 @@ pytest = [
 # Maximum line length
 line-length = 100
 target-version = "py312"
+src = ["src/**/src", "src/**/tests", "dev"]
 extend-include = ["*.ipynb"]
 
 [tool.ruff.format]
 preview = true
 docstring-code-format = true
+quote-style = "double"
 
 [tool.ruff.lint]
 preview = true
 # Select rules to check
-select = ["E", "F", "W", "C", "I"]  # Errors, F-strings, Warnings, Complexity, Imports
+select = ["E", "F", "W", "C", "I"]
 ignore = ["E302"] # let Black handle spacing
 
 [tool.ty.rules]
+# This is required because the project itself is not a package
 unresolved-import = "ignore"
 
 [tool.ty.src]
 include = [
     "src/**/src",
-    "dev/"
+    "dev"
 ]
 
 [tool.ty.environment]
