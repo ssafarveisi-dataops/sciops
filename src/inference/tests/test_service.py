@@ -1,6 +1,9 @@
 import pytest
-from cognism_sciops.inference.service import Service
 from pydantic import BaseModel
+
+from cognism_sciops.inference.service import Service
+
+# Example tests
 
 # -----------------------------
 # Dummy components
