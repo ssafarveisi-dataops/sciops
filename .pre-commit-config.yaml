@@ -27,7 +27,7 @@ repos:
         stages: [pre-commit]
         require_serial: true
 
-      # Run type checkeng
+      # Run type checking
       - id: ty
         name: ty
         language: system
