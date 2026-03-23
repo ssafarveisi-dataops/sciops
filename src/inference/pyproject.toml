@@ -15,3 +15,4 @@ build-backend = "uv_build"
 
 [tool.uv.build-backend]
 module-name = "cognism_sciops.inference"
+source-exclude = ["tests/**"]

@@ -14,3 +14,4 @@ build-backend = "uv_build"
 
 [tool.uv.build-backend]
 module-name = "cognism_sciops.postprocessor"
+source-exclude = ["tests/**"]
