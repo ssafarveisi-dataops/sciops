@@ -1,7 +1,7 @@
 import pytest
 from pydantic import BaseModel
 
-from cognism_sciops.inference.service import Service
+from cognism_sciops.inference.service.pipeline import Service
 
 # Example tests
 

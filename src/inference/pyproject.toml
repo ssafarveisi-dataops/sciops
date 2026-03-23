@@ -14,5 +14,6 @@ requires = ["uv_build>=0.8.22,<0.9.0"]
 build-backend = "uv_build"
 
 [tool.uv.build-backend]
-module-name = "cognism_sciops.inference"
+module-name = "cognism_sciops"
+namespace = true
 source-exclude = ["tests/**"]
