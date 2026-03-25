@@ -1,9 +1,9 @@
 [group: 'uv']
-build PACKAGE:
+@build PACKAGE:
     uv build --package {{PACKAGE}}
 
 [group: 'uv']
-publish PACKAGE: (build PACKAGE)
+@publish PACKAGE: (build PACKAGE)
     #!/bin/bash
     set -euxo pipefail
     # Artifactory username
