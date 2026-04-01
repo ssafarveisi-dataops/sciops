@@ -26,4 +26,4 @@ jobs:
       - name: Test all packages
         run: |
           # Test all packages even if one package has changes to prove integration
-          uv run pytest src/ -v
+          uv run --frozen pytest src/ -v
