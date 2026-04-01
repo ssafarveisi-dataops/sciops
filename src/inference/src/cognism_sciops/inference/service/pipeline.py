@@ -29,7 +29,7 @@ class Service(ABC):
 
     @abstractmethod
     def build_model(self):
-        # implement in subclass, return an object with an infer method that takes
+        # Implement in subclass, return an object with an infer method that takes
         # in the preprocessor output and returns the model outputs.
         # the model should implement an async infer method to allow for
         # async inference calls.
@@ -40,13 +40,13 @@ class Service(ABC):
 
     @abstractmethod
     def build_preprocessor(self):
-        # implement in subclass, return an object with a preprocess method that
+        # Implement in subclass, return an object with a preprocess method that
         # takes in the raw batch inputs and returns the processed batch to be
         # passed to the model infer method
         pass
 
     @abstractmethod
     def build_postprocessor(self):
-        # implement in subclass, return an object with a postprocess method that
+        # Implement in subclass, return an object with a postprocess method that
         # takes in the model outputs and returns the final postprocessed outputs
         pass

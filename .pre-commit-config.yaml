@@ -12,7 +12,7 @@ repos:
       # Run the linter
       - id: ruff
         name: ruff
-        entry: uv run --only-group lint dev/ruff.py
+        entry: uv run --frozen --only-group lint dev/ruff.py
         language: system
         files: '\.(py|ipynb)$'
         stages: [pre-commit]
@@ -21,7 +21,7 @@ repos:
       # Run the formatter
       - id: format
         name: format
-        entry: uv run --only-group lint dev/format.py
+        entry: uv run --frozen --only-group lint dev/format.py
         language: system
         files: '\.(py|ipynb|md)$'
         stages: [pre-commit]
@@ -40,5 +40,5 @@ repos:
          (?x)^(
            src/.*/tests/.*\.py
           )$
-        entry: uv run --only-group lint ty check --output-format github .
+        entry: uv run --frozen --only-group lint ty check --output-format github .
         require_serial: true
