@@ -2,12 +2,14 @@ AWS_ACCOUNT_ID := "463470983643"
 REPOSITORY := "Sciops"
 
 [group: 'uv']
-build PACKAGE:
+build PACKAGE VERSION:
+    # Build a package with a specific version before pushing it into code artifactory
+    uv version --package {{PACKAGE}} {{VERSION}}
     # Build a package before pushing it into code artifactory
     uv build --package {{PACKAGE}}
 
 [group: 'uv']
-@publish PACKAGE: (build PACKAGE)
+@publish PACKAGE VERSION: (build PACKAGE VERSION)
     #!/bin/bash
     set -euxo pipefail
     # Artifactory username
