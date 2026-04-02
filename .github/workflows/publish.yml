@@ -77,7 +77,7 @@ jobs:
           PACKAGE="${{ needs.validate-tag.outputs.package_name }}"
 
           echo "Update the version for package $PACKAGE to $VERSION"
-          uv version --package "$PACKAGE" "$VERSION"
+          uv version --frozen --package "$PACKAGE" "$VERSION"
 
           echo "Building package: $PACKAGE"
           uv build --package "$PACKAGE"
