@@ -72,13 +72,12 @@ jobs:
           enable-cache: false
 
       - name: Build and publish package
-        working-directory: "src/${{ needs.validate-tag.outputs.package_name }}"
         run: |
           VERSION="${{ needs.validate-tag.outputs.version }}"
           PACKAGE="${{ needs.validate-tag.outputs.package_name }}"
 
-          echo "Setting version to: $VERSION"
-          uv version "$VERSION"
+          echo "Update the version for package $PACKAGE to $VERSION"
+          uv version --package "$PACKAGE" "$VERSION"
 
           echo "Building package: $PACKAGE"
           uv build --package "$PACKAGE"
