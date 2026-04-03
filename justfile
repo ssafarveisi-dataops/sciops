@@ -1,10 +1,10 @@
-AWS_ACCOUNT_ID := "463470983643"
+AWS_ACCOUNT_ID := env("SCIENCE_AWS_ACCOUNT_ID")
 REPOSITORY := "Sciops"
 
 [group: 'uv']
 build PACKAGE VERSION:
     # Build a package with a specific version before pushing it into code artifactory
-    uv version --package {{PACKAGE}} {{VERSION}}
+    uv version --frozen --package {{PACKAGE}} {{VERSION}}
     # Build a package before pushing it into code artifactory
     uv build --package {{PACKAGE}}
 
