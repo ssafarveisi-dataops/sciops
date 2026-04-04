@@ -1,3 +1,13 @@
+"""
+This module defines the Service class, which is an abstract base class
+for implementing a service in the sciops inference pipeline.
+The Service class defines the structure of the service, including the model,
+preprocessor, and postprocessor components, and how they interact with each
+other during inference. Subclasses of Service should implement the build_model,
+build_preprocessor, and build_postprocessor methods to define the specific
+behavior of the service.
+"""
+
 from abc import ABC, abstractmethod
 from typing import Any
 
