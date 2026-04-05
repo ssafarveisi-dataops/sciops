@@ -20,8 +20,10 @@ build PACKAGE VERSION:
     )"
     # Artifactory password
     export UV_PUBLISH_PASSWORD=$AWS_CODEARTIFACT_TOKEN
+    # Url for the repository
+    export UV_PUBLISH_URL=https://cognism-321640139933.d.codeartifact.eu-west-1.amazonaws.com/pypi/Sciops/
     # Publish the built package
-    uv publish --index aws-code-artifactory
+    uv publish
 
 [group: 'package']
 run-tests DIR:

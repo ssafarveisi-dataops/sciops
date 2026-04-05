@@ -93,8 +93,3 @@ omit = ["*/tests/*", "*/__init__.py"]
 
 [tool.coverage.report]
 omit = ["*/__init__.py", "*/tests/*"]
-
-[[tool.uv.index]]
-name = "aws-code-artifactory"
-url = "https://cognism-321640139933.d.codeartifact.eu-west-1.amazonaws.com/pypi/Sciops/simple/"
-publish-url = "https://cognism-321640139933.d.codeartifact.eu-west-1.amazonaws.com/pypi/Sciops/"

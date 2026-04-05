@@ -93,4 +93,6 @@ jobs:
 
           export UV_PUBLISH_PASSWORD="$AWS_CODEARTIFACT_TOKEN"
 
-          uv publish --index aws-code-artifactory
+          export UV_PUBLISH_URL=https://cognism-321640139933.d.codeartifact.eu-west-1.amazonaws.com/pypi/Sciops/
+
+          uv publish
