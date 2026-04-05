@@ -5,10 +5,6 @@ on:
     tags:
       - "v*-science-package-*"
 
-env:
-  SCIENCE_AWS_ACCOUNT_ID: 321640139933
-  REPOSITORY: Sciops
-
 jobs:
   validate-tag:
     name: Validate tag and package version
@@ -90,13 +86,11 @@ jobs:
 
           export AWS_CODEARTIFACT_TOKEN="$(aws codeartifact get-authorization-token \
             --domain cognism \
-            --domain-owner ${{ env.SCIENCE_AWS_ACCOUNT_ID }} \
+            --domain-owner 321640139933 \
             --region eu-west-1 \
             --query authorizationToken \
             --output text)"
 
           export UV_PUBLISH_PASSWORD="$AWS_CODEARTIFACT_TOKEN"
 
-          export UV_PUBLISH_URL="https://cognism-${{ env.SCIENCE_AWS_ACCOUNT_ID }}.d.codeartifact.eu-west-1.amazonaws.com/pypi/${{ env.REPOSITORY }}/"
-
-          uv publish
+          uv publish --index aws-code-artifactory

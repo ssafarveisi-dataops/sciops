@@ -1,6 +1,3 @@
-AWS_ACCOUNT_ID := env("SCIENCE_AWS_ACCOUNT_ID")
-REPOSITORY := "Sciops"
-
 [group: 'uv']
 build PACKAGE VERSION:
     # Build a package with a specific version before pushing it into code artifactory
@@ -16,17 +13,15 @@ build PACKAGE VERSION:
     export UV_PUBLISH_USERNAME=aws
     # AWS code artifactory token
     export AWS_CODEARTIFACT_TOKEN="$(aws codeartifact get-authorization-token \
-        --domain cognism --domain-owner {{AWS_ACCOUNT_ID}} \
+        --domain cognism --domain-owner 321640139933\
         --region eu-west-1 --query authorizationToken \
         --output text \
         --profile cognism-data-mlops-dev
     )"
     # Artifactory password
     export UV_PUBLISH_PASSWORD=$AWS_CODEARTIFACT_TOKEN
-    # Url for the repository
-    export UV_PUBLISH_URL=https://cognism-{{AWS_ACCOUNT_ID}}.d.codeartifact.eu-west-1.amazonaws.com/pypi/{{REPOSITORY}}/
     # Publish the built package
-    uv publish
+    uv publish --index aws-code-artifactory
 
 [group: 'package']
 run-tests DIR:
