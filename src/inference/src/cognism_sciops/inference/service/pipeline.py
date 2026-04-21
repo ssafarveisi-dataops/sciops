@@ -13,7 +13,11 @@ from typing import Any
 
 from pydantic import BaseModel
 
+from cognism_sciops.signatures import SignatureType
+
 # This implementation may change
+
+assert SignatureType.MODEL.value == "model", "SignatureType.MODEL must be 'model'"
 
 
 # Updated version of the sciops service
