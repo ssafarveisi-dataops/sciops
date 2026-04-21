@@ -17,7 +17,7 @@ from cognism_sciops.signatures import SignatureType
 
 # This implementation may change
 
-SignatureType.MODEL = "model"
+assert SignatureType.MODEL.value == "model", "SignatureType.MODEL must be 'model'"
 
 
 # Updated version of the sciops service
