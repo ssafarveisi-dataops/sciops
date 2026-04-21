@@ -24,15 +24,10 @@ build PACKAGE VERSION:
     export UV_PUBLISH_URL=https://cognism-321640139933.d.codeartifact.eu-west-1.amazonaws.com/pypi/Sciops/
     # Publish the built package
     uv publish
+    # Delete dist folder after publishing
+    rm -rf dist/
 
 [group: 'package']
 run-tests DIR:
     # Run tests for all packages
     uv run pytest {{DIR}}/ -v
-
-[group: 'repo']
-delete-dirs:
-    # Delete some directories
-    rm -rf dist .venv
-
-alias dd := delete-dirs

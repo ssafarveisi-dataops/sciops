@@ -15,9 +15,10 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
 ]
 dependencies = [
-    "inference", # namespace package
-    "postprocessor", # namespace package
-    "preprocessor", # namespace package
+    "inference", # namespace packages
+    "postprocessor",
+    "preprocessor",
+    "signatures"
 ]
 
 [tool.uv.sources]
@@ -25,6 +26,7 @@ dependencies = [
 inference = { workspace = true }
 postprocessor = { workspace = true }
 preprocessor = { workspace = true }
+signatures = { workspace = true }
 
 [tool.uv]
 managed = true
